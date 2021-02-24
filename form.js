@@ -5,14 +5,22 @@ function printError(elemId, hintMsg) {
 // Defining a function to validate form 
 function validateForm() {
     // Retrieving the values of form elements 
+    var language = document.contactForm.language.value;
     var name = document.contactForm.name.value;
     var email = document.contactForm.email.value;
     var mobile = document.contactForm.mobile.value;
     var password = document.contactForm.password.value;
     
-   
 	// Defining error variables with a default value
-    var nameErr = emailErr = mobileErr = passwordErr = true;
+    var languageErr = nameErr = emailErr = mobileErr = passwordErr = true;
+
+    // Validate language
+    if(language == "Select") {
+        printError("languageErr", "Please select your language");
+    } else {
+        printError("languageErr", "");
+        languageErr = false;
+    }
     
     // Validate name
     if(name == "") {
@@ -57,27 +65,29 @@ function validateForm() {
      if(password == "") {
         printError("passwordErr", "Please enter your password");
     } else {
-        var regex = /^[a-zA-Z1-9]\d{9}$/;
+        var regex = /^[1-9]\d{9}$/;
         if(regex.test(password) === false) {
-            printError("passwordErr", "Please enter a valid password");
+            printError("passwordErr", "Please enter a valid password of five digits");
         } else{
             printError("passwordErr", "");
-            mobileErr = false;
+            passwordErr = false;
         }
     }
     
 
     // Prevent the form from being submitted if there are any errors
-    if((nameErr || emailErr || mobileErr || passwordErr) == true) {
+    if((languageErr || nameErr || emailErr || mobileErr || passwordErr) == true) {
        return false;
     } else {
         // Creating a string from input data for preview
         var dataPreview = "You've entered the following details: \n" +
+                          "Language: " + language + "\n" +
                           "Full Name: " + name + "\n" +
                           "Email Address: " + email + "\n" +
                           "Mobile Number: " + mobile + "\n" +
-                          "Password: " + password+ "\n" ;
-      
+                          "Password: " + password + "\n";
+                
+                 
         }
         // Display input data in a dialog box before submitting the form
         alert(dataPreview);
