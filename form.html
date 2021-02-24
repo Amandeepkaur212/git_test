@@ -1,3 +1,8 @@
+<!--https://github.com/Amandeepkaur212/git_test/blob/main/form.css-->
+ <!-- https://github.com/Amandeepkaur212/git_test/blob/main/form.html-->
+ <!--https://github.com/Amandeepkaur212/git_test/blob/main/form.js-->
+<!--https://github.com/Amandeepkaur212/git_test/blob/main/brand.gif-->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +17,22 @@
     <img class="img" src="brand.gif" alt="">
     <h2>Create Account</h2>
     <div class="row">
+        <label>Language</label>
+        <select name="language">
+            <option>Select</option>
+            <option>English</option>
+            <option>French</option>
+        </select>
+        <div class="error" id="languageErr"></div>
+    </div>
+    <div class="row">
         <label>Full Name</label>
         <input type="text" name="name">
         <div class="error" id="nameErr"></div>
     </div>
     <div class="row">
         <label>Email Address</label>
-        <input type="text" name="email">
+        <input type="text" name="email" placeholder="abc@gmail.com">
         <div class="error" id="emailErr"></div>
     </div>
     <div class="row">
@@ -28,16 +42,18 @@
     </div>
     <div class="row">
         <label>Password</label>
-        <input type="text" name="password" maxlength="10">
+        <input type="text" name="password" maxlength="5">
         <div class="error" id="passwordErr"></div>
     </div>
+    <div class="row">
     <p>Tim Hortons collects personal information from an Individual where the Individual submits an application for
         programs operated from time-to-time by Tim Hortons, such as the Tim Hortons Scholarship Program (the "Programs") or 
         for an employment opportunity.</p>
+    </div>
     <div class="row">
-        <label>Terms and Policies <i>(Required)</i></label>
+        <label>Terms and Policies(Required)</label>
         <div class="form-inline">
-            <p>By clicking on submit you will agree to the tim hortons: Privacy Policy,Tims Rewards Terms and Conditions, Terms of Service.</p>
+            <label><input type="checkbox" name="policies" value="policies">By clicking you will agree to the tim hortons: Privacy Policy,Tims Rewards Terms and Conditions, Terms of Service.</label>
         </div>
         
     <div class="row">
